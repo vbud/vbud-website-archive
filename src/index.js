@@ -1,5 +1,6 @@
 'use strict';
 
+import markdown from './components/markdown/markdown.directive';
 import Nav from './components/nav/nav.controller';
 import Home from './pages/home/home.controller';
 import Blog from './pages/blog/blog.controller';
@@ -34,6 +35,7 @@ import Blog from './pages/blog/blog.controller';
       // 3rd-party modules
       'ui.router'
     ])
+    .directive('markdown', markdown)
     .controller('Nav', Nav)
     .controller('Home', Home)
     .controller('Blog', Blog)
