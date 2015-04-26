@@ -23,8 +23,10 @@ module.exports = function(options, paths) {
       }
     });
 
-
-    gulp.watch(paths.src + '/**/*.html', function(event) {
+    gulp.watch([
+        paths.src + '/**/*.html',
+        paths.src + '/**/*.md'
+      ], function(event) {
       browserSync.reload(event.path);
     });
   });

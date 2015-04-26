@@ -22,7 +22,7 @@ ewb is a browser-based e-whiteboard that multiple people can use simultaneously.
 
 Here are a few cool things I made during my Masters and Bachelors degrees.
 
-[Master's Thesis: Exploring design and product development data using data visualization](https://dl.dropboxusercontent.com/u/8576989/Thesis_ValjeanClark_final.pdf): I worked with both Uppsala Universitet and Intel to research and design a solution to the difficult process of creating, storing, and sharing product development data. Several prototypes were built, three of which were attached to sample company data and tested with users. Publicly viewable links to the visualizations are pending (as of August 2013). Please send me an email if you are interested in seeing more about this work.
+[Master's Thesis: Exploring design and product development data using data visualization](https://dl.dropboxusercontent.com/u/8576989/Thesis_ValjeanClark_final.pdf): I worked with both Uppsala Universitet and Intel to research and design a solution to the difficult process of creating, storing, and sharing product development data. Several prototypes were built, three of which were attached to company data and tested with users.
 
 [Gripen Display Proposal](https://docs.google.com/presentation/d/1bqmwS_Woh9g98cSVAKKNmPgPx5DSCaYuBHHtZjMFBhU/edit?usp=sharing): This was fun - I was able to see the hardware and interfaces in use in the cockpit of a SAAB Gripen fighter jet and provide design recommendations for my Perception Theory course during my masters courses. We recommended improvements to their 2D interface, as well as some things they could try in 3D (with a big disclaimer that 3D interfaces are especially difficult). I also flew the flight simulator.
 
