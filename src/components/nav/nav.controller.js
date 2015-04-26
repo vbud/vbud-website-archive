@@ -18,6 +18,11 @@ function Nav() {
       active: false
     },
     {
+      name: 'Projects',
+      route: 'projects',
+      active: false
+    },
+    {
       name: 'Blog',
       route: 'blog',
       active: false

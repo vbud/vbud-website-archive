@@ -46,6 +46,8 @@ module.exports = function(options, paths) {
         paths.tmpServe + '/index.html',
         // and all html files in src directory
         paths.src + '/**/*.html',
+        // and all md files in src directory
+        paths.src + '/**/*.md',
         // ignore all template files, since they get put in templatecache by the 'partials' task
         '!' + paths.src + '/**/*.template.html',
         // ignore the src index.html since we already have the tmp one

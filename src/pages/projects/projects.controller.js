@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc controller
- * @name vbudWebsite.controller:Blog
+ * @name vbudWebsite.controller:Projects
  * @description
  */
 
-class Blog {
+class Projects {
   /* @ngInject */
   constructor () {
 
@@ -15,4 +15,4 @@ class Blog {
   }
 }
 
-export default Blog;
+export default Projects;

@@ -1,6 +1,6 @@
 'use strict';
 
-/* ngInject */
+/* @ngInject */
 function markdown($sanitize) {
 
   function link(scope, element) {

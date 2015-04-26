@@ -1,11 +1,5 @@
-$content-padding: 2rem;
-
-.phototron {
-  max-width: 100%;
-  height: auto;
+.page-home {
+  .content {
+    padding-top: 0;
+  }
 }
-
-.content {
-  padding: 0 $content-padding $content-padding;
-}
-

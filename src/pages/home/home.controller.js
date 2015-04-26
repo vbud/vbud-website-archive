@@ -4,7 +4,7 @@ class Home {
   /* @ngInject */
   constructor () {
 
-    var vm = this;
+    // var vm = this;
   }
 }
 

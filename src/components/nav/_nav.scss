@@ -2,9 +2,10 @@
 
 nav {
   position: absolute;
+  top: 0;
   left: 50%;
   transform: translate(-50%);
-  background: hsla(0, 0, 1, 0.66);
+  background: hsla(0, 0%, 0%, 0.66);
 
   ul {
     list-style: none;
@@ -23,7 +24,7 @@ nav {
     text-decoration: none;
 
     &.active, &:hover {
-      border-bottom: 4px solid #fff;
+      border-bottom: 4px solid hsl(40, 100%, 50%);
       padding-bottom: calc(1rem - 4px);
     }
   }

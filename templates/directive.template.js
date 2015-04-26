@@ -6,7 +6,7 @@
  * @description
  */
 
-/* ngInject */
+/* @ngInject */
 function <%= cameledName %>() {
 
   function link() {

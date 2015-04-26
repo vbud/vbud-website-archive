@@ -3,6 +3,7 @@
 import markdown from './components/markdown/markdown.directive';
 import Nav from './components/nav/nav.controller';
 import Home from './pages/home/home.controller';
+import Projects from './pages/projects/projects.controller';
 import Blog from './pages/blog/blog.controller';
 
 (function () {
@@ -16,6 +17,12 @@ import Blog from './pages/blog/blog.controller';
         url: '/',
         templateUrl: 'pages/home/home.html',
         controller: 'Home',
+        controllerAs: 'vm'
+      })
+      .state('projects', {
+        url: '/projects',
+        templateUrl: 'pages/projects/projects.html',
+        controller: 'Projects',
         controllerAs: 'vm'
       })
       .state('blog', {
@@ -38,6 +45,7 @@ import Blog from './pages/blog/blog.controller';
     .directive('markdown', markdown)
     .controller('Nav', Nav)
     .controller('Home', Home)
+    .controller('Projects', Projects)
     .controller('Blog', Blog)
     .config(config);
 
