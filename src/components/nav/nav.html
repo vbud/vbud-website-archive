@@ -1,0 +1,8 @@
+<!-- Template for the nav include. -->
+<nav ng-controller="Nav as vm">
+  <ul>
+    <li ng-repeat="link in vm.links">
+      <a ui-sref-active="active" ui-sref="{{link.route}}">{{link.name}}</a>
+    </li>
+  </ul>
+</nav>
