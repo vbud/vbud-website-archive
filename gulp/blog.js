@@ -4,7 +4,8 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 
 var fs = require('fs');
-var es = require('event-stream');
+var through2 = require('through2');
+var JSONStream = require('JSONStream');
 
 module.exports = function(options, paths) {
 
@@ -14,14 +15,15 @@ module.exports = function(options, paths) {
 
     return gulp.src(paths.posts + '/*.md')
       .pipe($.frontMatter())
-      .pipe(gulp.dest(paths.tmpPosts)) // copy posts md files sans frontmatter
-      .pipe(es.map(function(file, cb) {
-        cb(null, JSON.stringify(file.frontMatter, null, 2) + ',\n');
+      // copy posts md files sans frontmatter
+      .pipe(gulp.dest(paths.tmpPosts))
+      // transform the stream to just pull out the frontMatter property on the file object
+      .pipe(through2.obj(function(file, encoding, callback) {
+        this.push(file.frontMatter);
+        callback();
       }))
-      // .pipe(es.stringify())
-      // .pipe(es.wait(function(err, body) {
-      //   console.log(JSON.stringify(body, null, 2));
-      // }))
+      // turn the stream into a json array
+      .pipe(JSONStream.stringify('[\n', ',\n', '\n]\n', 2))
       .pipe(fs.createWriteStream(paths.tmpPosts + '/posts.json'))
 
   });
