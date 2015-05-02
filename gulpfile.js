@@ -29,7 +29,7 @@ var paths = {
   tmpPartials: '.tmp/partials',
   tmpStyles: '.tmp/styles',
   tmpServe: '.tmp/serve',
-  tmpPosts: '.tmp/posts',
+  tmpPosts: '.tmp/serve/posts',
   tmpDist: '.tmp/dist',
   tmpDistScripts: '.tmp/dist/scripts',
   tmpDistStyles: '.tmp/dist/styles',

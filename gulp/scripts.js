@@ -42,7 +42,7 @@ module.exports = function(options, paths) {
       .pipe(gulp.dest(paths.tmpServe + '/'));
   }
 
-  gulp.task('scripts', function () {
+  gulp.task('scripts', ['blog'], function () {
     return webpack(false);
   });
 
