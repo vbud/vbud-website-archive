@@ -5,7 +5,7 @@ var gulp = require('gulp');
 var _ = require('lodash');
 
 var $ = require('gulp-load-plugins')({
-  pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
+  pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license']
 });
 
 module.exports = function(options, paths) {
@@ -92,15 +92,15 @@ module.exports = function(options, paths) {
       }))
       .pipe(htmlFilter.restore())
 
-      // STEP: Write everything to dist folder
+      // STEP: Write everything to tmp dist folder
       // .pipe($.debug({title: 'DIST FILES:'}))
       .pipe(gulp.dest(paths.tmpDist + '/'))
       // show some stats about the size of your project
       .pipe( $.size({ title: paths.tmpDist + '/', showFiles: true }) );
   });
 
-  // Fonts from bower dependencies and custom ones from this app
-  gulp.task('fonts', function () {
+  // Fonts from bower dependencies and custom ones from src
+  gulp.task('dist-fonts', function () {
     return gulp.src([
       paths.fonts + '/**/*'
     ].concat($.mainBowerFiles()))
@@ -109,13 +109,20 @@ module.exports = function(options, paths) {
       .pipe(gulp.dest(paths.tmpDistFonts + '/'));
   });
 
-  gulp.task('images', function () {
+  // Images from src
+  gulp.task('dist-images', function () {
     return gulp.src([
       paths.images + '/**/*'
     ])
       // .pipe($.debug({title: 'SOURCE IMAGES:'}))
       .pipe(gulp.dest(paths.tmpDistImages + '/'));
   });
+
+  // Processed post .md and .json files from tmp
+  gulp.task('dist-posts', ['blog'], function() {
+    return gulp.src(paths.tmpPosts + '/*')
+      .pipe(gulp.dest(paths.tmpDistPosts + '/'));
+  })
 
 
   // Setup gulp-rev-all, stop it from renaming index.html and favicon.ico
@@ -124,17 +131,12 @@ module.exports = function(options, paths) {
   });
 
   // Revision all the things in tmp dist directory and write to final dist location
-  gulp.task('rev', ['dist', 'fonts', 'images'], function() {
+  gulp.task('rev', ['dist', 'dist-fonts', 'dist-images', 'dist-posts'], function() {
     return gulp.src(paths.tmpDist + '/**/*')
       .pipe(revAll.revision())
       .pipe(gulp.dest(paths.dist + '/')) //write revisioned files to dist
       .pipe(revAll.manifestFile())
       .pipe(gulp.dest(paths.dist + '/')); //write rev manifest to dist
-  });
-
-
-  gulp.task('clean', function (done) {
-    $.del([paths.dist + '/', paths.tmp + '/'], done);
   });
 
   gulp.task('build', ['rev']);

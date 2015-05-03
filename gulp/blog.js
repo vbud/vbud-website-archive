@@ -6,6 +6,7 @@ var $ = require('gulp-load-plugins')();
 var _ = require('lodash');
 
 var fs = require('fs');
+var mkdirp = require('mkdirp');
 var through = require('through2');
 var JSONStream = require('JSONStream');
 
@@ -73,6 +74,11 @@ module.exports = function(options, paths) {
     //     }
     //   }))
     //   .pipe(gulp.dest(paths.src))
+
+    // create the tmp posts directory if it does not already exist
+    // TODO: should do this at the last pipe below where we fs.createWriteStream
+    // OR: use async mkdirp and have the rest of task 'blog' execute once it's finished (similar to 'clean' task)
+    mkdirp.sync(paths.tmpPosts);
 
     return gulp.src(paths.posts + '/*.md')
       .pipe($.frontMatter())

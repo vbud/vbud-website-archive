@@ -41,7 +41,7 @@ module.exports = function(options, paths) {
   }));
 
   gulp.task('serve', ['watch'], function () {
-    // serve the .tmp and src directories
+    // serve the tmp serve and src directories
     browserSyncInit([paths.tmpServe, paths.src]);
   });
 

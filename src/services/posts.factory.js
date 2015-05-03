@@ -1,6 +1,6 @@
 'use strict';
 
-/* ngInject */
+/* @ngInject */
 function postsService($http) {
 
   function processPost(post) {

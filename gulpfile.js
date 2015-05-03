@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var wrench = require('wrench');
+var del = require('del');
 
 var options = {
   appName: 'vbudWebsite',
@@ -33,13 +34,14 @@ var paths = {
   tmpDist: '.tmp/dist',
   tmpDistScripts: '.tmp/dist/scripts',
   tmpDistStyles: '.tmp/dist/styles',
+  tmpDistPosts: '.tmp/dist/posts',
   tmpDistAssets: '.tmp/dist/assets',
   tmpDistImages: '.tmp/dist/assets/images',
   tmpDistFonts: '.tmp/dist/assets/fonts',
   dist: 'dist',
   e2e: 'e2e',
   templates: 'templates',
-  posts: 'src/posts' //blog posts
+  posts: 'posts' //blog posts
 };
 
 wrench.readdirSyncRecursive('./gulp').filter(function(file) {
@@ -48,6 +50,11 @@ wrench.readdirSyncRecursive('./gulp').filter(function(file) {
   require('./gulp/' + file)(options, paths);
 });
 
-gulp.task('default', ['clean'], function () {
-    gulp.start('build');
+gulp.task('clean', function (done) {
+  del([paths.dist + '/', paths.tmp + '/'], done);
+});
+
+// default task is serve
+gulp.task('default', function () {
+    gulp.start('serve');
 });

@@ -28,8 +28,7 @@ module.exports = function(options, paths) {
 
     // watch for changes to html files and page md files (not post md files, which have to be reprocessed)
     gulp.watch([
-      paths.src + '/**/*.{html,md}',
-      '!' + paths.posts + '/*.md'
+      paths.src + '/**/*.{html,md}'
     ], function(event) {
       browserSync.reload(event.path);
     });
