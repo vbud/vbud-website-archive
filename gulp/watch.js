@@ -26,7 +26,11 @@ module.exports = function(options, paths) {
       }
     });
 
-    gulp.watch(paths.src + '/**/*.html', function(event) {
+    // watch for changes to html files and page md files (not post md files, which have to be reprocessed)
+    gulp.watch([
+      paths.src + '/**/*.{html,md}',
+      '!' + paths.posts + '/*.md'
+    ], function(event) {
       browserSync.reload(event.path);
     });
 

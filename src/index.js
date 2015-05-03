@@ -1,11 +1,12 @@
 'use strict';
 
 import markdown from './components/markdown/markdown.directive';
-import posts from './services/posts.factory';
+import postsService from './services/posts.factory';
 import Nav from './components/nav/nav.controller';
 import Home from './pages/home/home.controller';
 import Projects from './pages/projects/projects.controller';
 import Blog from './pages/blog/blog.controller';
+import Post from './pages/blog/post/post.controller';
 
 (function () {
 
@@ -32,31 +33,18 @@ import Blog from './pages/blog/blog.controller';
         controller: 'Blog',
         controllerAs: 'vm'
       })
-      /* @injectRoutes start */
-      .state('blog/merciless-pandas', {
-        url: '/blog/merciless-pandas',
-        templateUrl: 'posts/20150426_merciless-pandas.html'
-      })
-      .state('blog/autoproxy-bash-goodness', {
-        url: '/blog/autoproxy-bash-goodness',
-        templateUrl: 'posts/20150427_autoproxy-bash-goodness.html'
-      })
-      /* @injectRoutes end */
-
-    // add a route for each post in posts.json
-    // console.log(posts.metadata);
-    // posts.metadata.forEach(function(d) {
-    //   $stateProvider
-    //     .state(d.route, {
-    //       url: '/' + d.route,
-    //       templateUrl: 'pages/post/post.html',
-    //       controller: function() {
-    //         var vm = this;
-    //         vm.mdPath = 'posts/' + d.filename;
-    //       },
-    //       controllerAs: 'vm'
-    //     })
-    // })
+        .state('blog.post', {
+          url: '/:post',
+          templateUrl: 'pages/blog/post/post.html',
+          controller: 'Post',
+          controllerAs: 'vm'
+        })
+        // .state('blog/post', {
+        //   url: '/blog/:post',
+        //   templateUrl: 'pages/blog/post/post.html',
+        //   controller: 'Post',
+        //   controllerAs: 'vm'
+        // })
 
     $urlRouterProvider.otherwise('/');
 
@@ -69,11 +57,12 @@ import Blog from './pages/blog/blog.controller';
       'ui.router'
     ])
     .directive('markdown', markdown)
-    .factory('posts', posts)
+    .factory('postsService', postsService)
     .controller('Nav', Nav)
     .controller('Home', Home)
     .controller('Projects', Projects)
     .controller('Blog', Blog)
+    .controller('Post', Post)
     .config(config);
 
 })();

@@ -8,10 +8,14 @@
 
 class Blog {
   /* @ngInject */
-  constructor () {
+  constructor ($state, postsService) {
+    var vm = this;
 
-    // var vm = this;
+    vm.posts = postsService.getAllPosts().then(function(posts) {
+      vm.posts = posts;
+    });
 
+    vm.$state = $state;
   }
 }
 
