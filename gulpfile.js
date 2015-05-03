@@ -5,6 +5,40 @@ var gutil = require('gulp-util');
 var wrench = require('wrench');
 var del = require('del');
 
+var paths = {
+  // src directories
+  src: 'src',
+  pages: 'src/pages',
+  components: 'src/components',
+  styles: 'src/styles',
+  assets: 'src/assets',
+  images: 'src/assets/images',
+  fonts: 'src/assets/fonts',
+  // dependencies directories
+  bower: 'bower_components',
+  otherDeps: 'src/_dependencies',
+  // tmp directories
+  tmp: '.tmp',
+  tmpPartials: '.tmp/partials',
+  tmpStyles: '.tmp/styles',
+  tmpServe: '.tmp/serve',
+  tmpPosts: '.tmp/serve/posts',
+  tmpDist: '.tmp/dist',
+  tmpDistScripts: '.tmp/dist/scripts',
+  tmpDistStyles: '.tmp/dist/styles',
+  tmpDistOtherDeps: '.tmp/dist/_dependencies',
+  tmpDistPosts: '.tmp/dist/posts',
+  tmpDistAssets: '.tmp/dist/assets',
+  tmpDistImages: '.tmp/dist/assets/images',
+  tmpDistFonts: '.tmp/dist/assets/fonts',
+  // dist
+  dist: 'dist',
+  // generator templates
+  templates: 'templates',
+  // blog posts
+  posts: 'posts'
+};
+
 var options = {
   appName: 'vbudWebsite',
   errorHandler: function(title) {
@@ -14,34 +48,8 @@ var options = {
     };
   },
   wiredep: {
-    directory: 'bower_components'
+    directory: paths.bower
   }
-};
-
-var paths = {
-  src: 'src',
-  pages: 'src/pages',
-  components: 'src/components',
-  styles: 'src/styles',
-  assets: 'src/assets',
-  images: 'src/assets/images',
-  fonts: 'src/assets/fonts',
-  tmp: '.tmp',
-  tmpPartials: '.tmp/partials',
-  tmpStyles: '.tmp/styles',
-  tmpServe: '.tmp/serve',
-  tmpPosts: '.tmp/serve/posts',
-  tmpDist: '.tmp/dist',
-  tmpDistScripts: '.tmp/dist/scripts',
-  tmpDistStyles: '.tmp/dist/styles',
-  tmpDistPosts: '.tmp/dist/posts',
-  tmpDistAssets: '.tmp/dist/assets',
-  tmpDistImages: '.tmp/dist/assets/images',
-  tmpDistFonts: '.tmp/dist/assets/fonts',
-  dist: 'dist',
-  e2e: 'e2e',
-  templates: 'templates',
-  posts: 'posts' //blog posts
 };
 
 wrench.readdirSyncRecursive('./gulp').filter(function(file) {

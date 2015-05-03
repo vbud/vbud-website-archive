@@ -15,7 +15,9 @@ module.exports = function(options, paths) {
     };
 
     var injectFiles = gulp.src([
-      paths.src + '/styles/**/*.scss', //shared scss first
+      paths.src + '/styles/_normalize.scss', //normalize first
+      paths.src + '/styles/_variables.scss', //then variables
+      paths.src + '/styles/**/*.scss', //then any other scss files in styles directory
       paths.src + '/pages/**/*.scss', //then pages
       paths.src + '/components/**/*.scss', //then components
       '!' + paths.styles + '/index.scss' //ignore index.scss
@@ -24,7 +26,9 @@ module.exports = function(options, paths) {
     var injectOptions = {
       transform: function(filePath) {
         filePath = filePath.replace(paths.src, '..');
-        return '@import \'' + filePath + '\';';
+        var importLine = '@import \'' + filePath + '\';';
+        console.log('SASS INJECT: ' + importLine);
+        return importLine;
       },
       starttag: '// injector',
       endtag: '// endinjector',

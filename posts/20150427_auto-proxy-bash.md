@@ -8,7 +8,7 @@ tags:
 - panda
 ---
 
-I use OS X at work, and unfortunately the best network and client configuration is done for Windows. OS X users are second-class citizens (Linux/Unix users have it even worse).
+I use OS X at work, and unfortunately the network and client configuration only work seamlessly for Windows. OS X users are second-class citizens (Linux/Unix users have it even worse).
 
 When I am on my work's network, I must have Auto Proxy Discovery turned on in order to browse websites outside of the intranet. I would leave it on all the time, but then I have to wait for my browsers to attempt the proxy discovery when I am outside of my work network. 
 
@@ -23,7 +23,7 @@ You can toggle Auto Proxy Discovery in System Preferences. It is a 6-step proces
 
 Like other people who write code, I am lazy and want this to be a one-step process. Bash functions to the rescue!
 
-```
+```bash
 # toggle auto proxy discovery of the Wi-Fi interface
 function autoproxtog() {
   autoproxStat="$(networksetup -getproxyautodiscovery "Wi-Fi")"

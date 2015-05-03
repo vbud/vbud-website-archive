@@ -5,7 +5,8 @@ nav {
   top: 0;
   left: 50%;
   transform: translate(-50%);
-  background: hsla(0, 0%, 0%, 0.66);
+  background: $dark-background;
+  // background: hsla(0, 0%, 0%, 0.66);
 
   ul {
     list-style: none;

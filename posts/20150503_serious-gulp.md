@@ -1,5 +1,5 @@
 ---
-title: Getting more serious with gulp
+title: Getting serious with gulp
 description: Using gulp to iterate over markdown files and store metadata for the web application.
 tags: 
 - gulp
@@ -7,7 +7,7 @@ tags:
 - streams 
 ---
 
-In order to create this blog, I needed to build a master posts.json file that contains information so that my web app (Angular-based) can consume it. I needed the following information from/about each file:
+In order to create this blog, I needed to build a master posts.json file that contains information so that my web app (Angular-based) can consume them. I needed the following information from/about each file:
 - front-matter
 - file path
 - date authored

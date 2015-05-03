@@ -19,9 +19,9 @@ module.exports = function(options, paths) {
       return new Date();
     }
     var y, m, d;
-    y = date.substring(0,4);
-    m = date.substring(4,6);
-    d = date.substring(7);
+    y = parseInt(date.substring(0,4));
+    m = parseInt(date.substring(4,6)) - 1; //month is zero-based >_<
+    d = parseInt(date.substring(6));
     return new Date(y, m, d);
   }
 

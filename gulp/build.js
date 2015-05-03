@@ -4,9 +4,9 @@ var gulp = require('gulp');
 
 var _ = require('lodash');
 
-var $ = require('gulp-load-plugins')({
-  pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license']
-});
+var $ = require('gulp-load-plugins')();
+var mainBowerFiles = require('main-bower-files');
+var uglifySaveLicense = require('uglify-save-license');
 
 module.exports = function(options, paths) {
   // If you want an html partial/template/view to be templatecached, make sure it ends with '.template.html' (e.g. 'someDirective.template.html'). Otherwise, it will be copied and minified in the html task. Be sure to point to the correct template file path in your directive templateUrl.
@@ -67,7 +67,7 @@ module.exports = function(options, paths) {
       .pipe(jsFilter)
       // .pipe($.debug({title: 'JS FILES:'}))
       .pipe($.ngAnnotate())
-      .pipe($.uglify({ preserveComments: $.uglifySaveLicense })).on('error', options.errorHandler('Uglify'))
+      .pipe($.uglify({ preserveComments: uglifySaveLicense })).on('error', options.errorHandler('Uglify'))
       .pipe(jsFilter.restore())
 
       // STEP: CSS files
@@ -103,7 +103,7 @@ module.exports = function(options, paths) {
   gulp.task('dist-fonts', function () {
     return gulp.src([
       paths.fonts + '/**/*'
-    ].concat($.mainBowerFiles()))
+    ].concat(mainBowerFiles()))
       .pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
       .pipe($.flatten())
       .pipe(gulp.dest(paths.tmpDistFonts + '/'));
@@ -118,6 +118,12 @@ module.exports = function(options, paths) {
       .pipe(gulp.dest(paths.tmpDistImages + '/'));
   });
 
+  // Non-bower dependencies (e.g. highlight.js)
+  gulp.task('dist-other-deps', function() {
+    return gulp.src(paths.otherDeps + '/*')
+      .pipe(gulp.dest(paths.tmpDistOtherDeps + '/'));
+  })
+
   // Processed post .md and .json files from tmp
   gulp.task('dist-posts', ['blog'], function() {
     return gulp.src(paths.tmpPosts + '/*')
@@ -131,7 +137,7 @@ module.exports = function(options, paths) {
   });
 
   // Revision all the things in tmp dist directory and write to final dist location
-  gulp.task('rev', ['dist', 'dist-fonts', 'dist-images', 'dist-posts'], function() {
+  gulp.task('rev', ['dist', 'dist-fonts', 'dist-images', 'dist-other-deps', 'dist-posts'], function() {
     return gulp.src(paths.tmpDist + '/**/*')
       .pipe(revAll.revision())
       .pipe(gulp.dest(paths.dist + '/')) //write revisioned files to dist
