@@ -21,7 +21,7 @@ You can toggle Auto Proxy Discovery in System Preferences. It is a 6-step proces
 5. Click OK
 6. Click Apply
 
-Like other people who write code, I am lazy and want this to be a one-step process. Bash functions to the rescue!
+Like other programmers, I am lazy and want this to be a one-step process. Terminal + bash functions to the rescue!
 
 ```bash
 # toggle auto proxy discovery of the Wi-Fi interface
@@ -39,7 +39,7 @@ function autoproxtog() {
 }
 ```
 
-The above function is simple to use and will toggle your Auto Proxy Discovery state on the network interface named "Wi-Fi". If you want to use it on a different interface, simply replace "Wi-Fi" with name of the interface you want to toggle (e.g. "USB Ethernet").
+The above function toggles your Auto Proxy Discovery state on the network interface named "Wi-Fi". If you want to use it on a different interface, simply replace "Wi-Fi" with name of the interface you want to toggle (e.g. "USB Ethernet").
 
 To use it, add the above code to your `.bash_profile`, then reload your `.bash_profile` with `source ~./bash_profile` or by opening up a new Terminal tab/window.
 
