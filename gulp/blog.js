@@ -41,7 +41,7 @@ module.exports = function(options, paths) {
       // transform the stream to just pull out the frontMatter property on the file object
       .pipe(through.obj(function(file, encoding, callback) {
         var route, date;
-        // parse the filename into the route and date
+        // split the filename into the route and date
         var filename = file.relative.replace('.md', '').split('_');
         // should be only one underscore between two strings
         if(filename.length === 2) {
