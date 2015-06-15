@@ -1,3 +1,8 @@
+# Current work
+
+I currently work at Intel. I work on internal applications and tools, so I cannot share my portfolio publicly. However, if you would like to see things I have built, please contact me and I can send you some sanitized examples.
+
+
 # Current side projects
 
 **[starter-angular-babel][starter-angular-babel]** is my starter project for ES6, Angular-based web applications. I also use a modified version of it at work.
