@@ -24,4 +24,4 @@ function markdown($sanitize) {
   };
 }
 
-export default markdown;
+angular.module('vbudWebsite').directive('markdown', markdown);

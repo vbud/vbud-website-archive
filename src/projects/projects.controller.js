@@ -15,4 +15,4 @@ class Projects {
   }
 }
 
-export default Projects;
+angular.module('vbudWebsite').controller('Projects', Projects);

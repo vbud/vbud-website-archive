@@ -31,4 +31,4 @@ function Nav() {
 
 }
 
-export default Nav;
+angular.module('vbudWebsite').controller('Nav', Nav);

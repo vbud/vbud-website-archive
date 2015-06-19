@@ -2,15 +2,21 @@
 
 var gulp = require('gulp');
 
-var $ = require('gulp-load-plugins')();
-
-module.exports = function(options, paths) {
-
-  // Deploy dist to Github pages
-  gulp.task('deploy', function() {
-    return gulp.src('./dist/**/*')
-      .pipe($.ghPages({
-        branch: 'master'
-      }));
-  });
+var $ = {
+  ghPages: require('gulp-gh-pages')
 };
+
+var config = require('./config');
+var paths = config.paths;
+
+// Deploy dist to GitHub pages
+gulp.task('deploy', deploy);
+
+function deploy() {
+  return gulp.src(paths.dist + '/**/*')
+    .pipe($.ghPages({
+      branch: 'master'
+    }));
+}
+
+module.exports = deploy;

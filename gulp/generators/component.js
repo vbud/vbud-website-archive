@@ -1,26 +1,55 @@
 'use strict';
 
 var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
+var $ = {
+  filter: require('gulp-filter'),
+  template: require('gulp-template'),
+  rename: require('gulp-rename'),
+  debug: require('gulp-debug')
+};
 
 var _ = require('lodash');
 var chalk = require('chalk');
 var argv = require('minimist')(process.argv);
 
+var config = require('../config');
+var paths = config.paths;
 
 
-//===== Generates all the appropriate files for a new component.
-// A page is just a type of component, so this is shared between the 'page' and 'component' tasks.
-function generateComponent(options, paths, name, type) {
-  // type can be: page, directive (component), or include (component)
-  if(type !== 'page' && type !== 'directive' && type !== 'include')
-    throw 'Invalid type specified.';
+//===== Gulp task to scaffold a new component.
+// Creates several files for when you need a full component (like a page, or or a big directive, or an include that needs a controller)
+gulp.task('component', function() {
 
-  // template filenames
+  var name = argv.n || argv.name;
+  var type = argv.t || argv.type;
+
+  // Check if name and type were both specified as arguments
+  if(name === undefined || type === undefined) {
+    console.error([
+      chalk.red('Sorry, you must provide a name and type to generate a component!'),
+      'For example:',
+      'To generate a page named "fancy-page":',
+      '  gulp component -n fancy-page -t page',
+      'To generate a directive component named "fancy-directive" (comes with directive, template html, scss, and test files):',
+      '  gulp component -n fancy-directive -t directive',
+      'To generate an include component named "fancy-include" (comes with controller, include html, scss, and test files):',
+      '  gulp component -n fancy-include -t include'
+    ].join('\n'));
+    return;
+  }
+
+  // TODO: also check if folder/component already exists with that same name
+
+  // Check if `type` is valid
+  if(type !== 'page' && type !== 'directive' && type !== 'include') {
+    console.error( chalk.red('Invalid type specified.') );
+    return;
+  }
+
   var templateFilenames;
   if(type === 'page') {
     templateFilenames = {
-      html: 'page.template.html',
+      html: 'template.template.html',
       scss: '_styles.template.scss',
       js: 'controller.template.js',
       spec: 'controller.spec.template.js'
@@ -42,9 +71,6 @@ function generateComponent(options, paths, name, type) {
       spec: 'controller.spec.template.js'
     };
   }
-
-  // convert name to camelCase
-  var cameledName = _.camelCase(name);
 
   // create new filenames
   var newFilenames;
@@ -72,22 +98,15 @@ function generateComponent(options, paths, name, type) {
     spec: $.filter('**/' + templateFilenames.spec)
   };
 
-  // folder path of new page/component
-  var folderPath;
-  if(type === 'page')
-    folderPath = paths.pages + '/' + name + '/';
-  else if(type === 'directive' || type === 'include')
-    folderPath = paths.components + '/' + name + '/';
+  var folderPath = paths.src + '/' + name + '/';
 
   // console.log([
   //     name,
-  //     cameledName,
+  //     _.camelCase(name),
   //     _.map(templateFilenames, function(d) { return d; }),
   //     _.map(newFilenames, function(d) { return d; }),
   //     folderPath
   //   ].join('\n'));
-
-  console.log(paths.templates);
 
   // grab the view, styles, controller, and spec files
   gulp.src([
@@ -99,9 +118,10 @@ function generateComponent(options, paths, name, type) {
     // .pipe($.debug({title: 'SOURCE FILES:'}))
     // run all files through the templater
     .pipe($.template({
-      'appName': options.appName,
+      'appName': config.appName,
       'name': name,
-      'cameledName': cameledName,
+      'cameledName': _.camelCase(name),
+      'PascaledName': _.capitalize( _.camelCase(name) ),
       'type': type,
       'htmlFilename': newFilenames.html
     }))
@@ -136,74 +156,7 @@ function generateComponent(options, paths, name, type) {
     })).join('\n')); //each string gets its own line
 
   // TODO???:
-  // add the import to the top index.js
+  // add the import at the top of index.js
   // add the controller/directive to the angular.module block
-}
 
-
-
-module.exports = function(options, paths) {
-
-  //===== Gulp task to create a new page.
-  // Examples:
-  // Generate a page named "fancy-page"
-  //    gulp page -n fancy-page
-  //    gulp page --name fancy-page
-  gulp.task('page', function() {
-
-    var name = argv.n || argv.name;
-
-    if(name === undefined) {
-      console.error([
-        chalk.red('Sorry, you must provide a name to generate a page!'),
-        'For example:',
-        'gulp page -n fancy-page',
-        'gulp page --name fancy-page'
-      ].join('\n'));
-      return;
-    }
-
-    var type = 'page';
-
-    generateComponent(options, paths, name, type);
-
-  });
-
-
-
-  //===== Gulp task to create a new component.
-  // Examples:
-  // Generate a directive component named "fancy-component"
-  //    gulp component -n fancy-component
-  //    gulp component -n fancy-component -d
-  //    gulp component --name fancy-component --directive
-  // Generate an include component named "fancy-component"
-  //    gulp component -n fancy-component -i
-  //    gulp component -n fancy-component --include
-  gulp.task('component', function() {
-
-    var name = argv.n || argv.name;
-
-    if(name === undefined) {
-      console.error([
-        chalk.red('Sorry, you must provide a name to generate a component!'),
-        'For example:',
-        'gulp component -n fancy-component',
-        'gulp component --name fancy-component',
-        'gulp component -n fancy-component -d',
-        'gulp component --name fancy-component --directive',
-        'gulp component -n fancy-component -i',
-        'gulp component -n fancy-component --include'
-      ].join('\n'));
-      return;
-    }
-
-    var type = 'directive';
-    if(argv.i === true || argv.include === true)
-      type = 'include';
-
-    generateComponent(options, paths, name, type);
-
-  });
-
-};
+});

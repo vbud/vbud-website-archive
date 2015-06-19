@@ -11,4 +11,4 @@ class Post {
   }
 }
 
-export default Post;
+angular.module('vbudWebsite').controller('Post', Post);

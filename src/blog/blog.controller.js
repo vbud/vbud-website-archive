@@ -19,4 +19,4 @@ class Blog {
   }
 }
 
-export default Blog;
+angular.module('vbudWebsite').controller('Blog', Blog);

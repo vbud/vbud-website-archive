@@ -28,4 +28,4 @@ function postsService($http) {
   };
 }
 
-export default postsService;
+angular.module('vbudWebsite').factory('postsService', postsService);

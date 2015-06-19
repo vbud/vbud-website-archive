@@ -8,4 +8,4 @@ class Home {
   }
 }
 
-export default Home;
+angular.module('vbudWebsite').controller('Home', Home);

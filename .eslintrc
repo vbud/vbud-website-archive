@@ -1,0 +1,43 @@
+{
+	"parser": "babel-eslint",
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "angular": false,
+    "_": false
+  },
+  "rules": {
+    "global-strict": [
+      2,
+      "always"
+    ],
+    "strict": [
+      2,
+      "global"
+    ],
+    "quotes": [
+      1,
+      "single"
+    ],
+    "indent": [
+      2,
+      "tab"
+    ],
+    "no-trailing-spaces": [
+      2, {
+        skipBlankLines: true
+      }
+    ],
+    "camelcase": [
+      2, {
+        "properties": "always"
+      }
+    ],
+    "no-use-before-define": [
+      1,
+      "nofunc"
+    ],
+    "no-underscore-dangle": 0
+  }
+}
