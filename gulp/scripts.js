@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 var $ = {
   util: require('gulp-util'),
-  webpack: require('gulp-webpack')
+  webpack: require('webpack-stream')
 };
 
 var browserSync = require('browser-sync');
@@ -12,14 +12,16 @@ var config = require('./config');
 var paths = config.paths;
 
 
-gulp.task('scripts', scripts);
-
-gulp.task('scripts:watch', function (callback) {
-  return scripts(true, callback);
+gulp.task('scripts', function() {
+  scripts();
 });
 
-function scripts(watch, callback) {
-  watch = watch || false;
+gulp.task('scripts:watch', function (callback) {
+  return scripts(callback);
+});
+
+function scripts(callback) {
+  var watch = (typeof callback === 'function');
 
   var webpackOptions = {
     watch: watch,
