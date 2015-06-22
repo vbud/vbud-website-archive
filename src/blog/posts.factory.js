@@ -3,26 +3,28 @@
 /* @ngInject */
 function postsService($http) {
 
-  function processPost(post) {
-    post.path = 'posts/' + post.filename;
+  /*function processPost(post) {
     return post;
   }
   function processPosts(posts) {
     posts.forEach(function(post) {
       processPost(post);
-    })
+    });
     return posts;
-  }
+  }*/
+
+  var getPosts = $http.get('blog/posts/posts.json', {cache: true});
+
   //TODO: we may want to move this all to the run block so all the posts are downloaded and processed once
   return {
     getAllPosts: function() {
-      return $http.get('posts/posts.json', {cache: true}).then(function(result) {
-        return processPosts(result.data);
+      return getPosts.then(function(result) {
+        return result.data;
       });
     },
     getPostByRoute: function(route) {
-      return $http.get('posts/posts.json', {cache: true}).then(function(result) {
-        return processPost(_.find(result.data, {route: route}));
+      return getPosts.then(function(result) {
+        return _.find(result.data, {route: route});
       })
     }
   };

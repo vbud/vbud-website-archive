@@ -61,12 +61,10 @@ gulp.task('dist', function () {
   var assets;
 
   return gulp.src([
-      // grab index.html file in tmp directory
-      paths.tmpServe + '/index.html',
+      // grab all html files in tmp directory
+      paths.tmpServe + '/**/*.html',
       // and all html files in src directory
       paths.src + '/**/*.html',
-      // and all md files in src directory
-      paths.src + '/**/*.md',
       // ignore all template files, since they get put in templatecache by the 'templates' task
       '!' + paths.src + '/**/*.template.html',
       // ignore the src index.html since we already have the tmp one
@@ -126,9 +124,11 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest(paths.tmpDist + '/fonts'));
 });
 
-gulp.task('images', function () {
+// Images and .json files
+gulp.task('other', function () {
   return gulp.src([
-    paths.src + '/**/*.{jpg,jpeg,tiff,gif,png,svg,ico}'
+    paths.src + '/**/*.{jpg,jpeg,tiff,gif,png,svg,ico}',
+    paths.tmpServe + '/**/*.json'
   ])
     // .pipe($.debug({title: 'SOURCE IMAGES:'}))
     .pipe(gulp.dest(paths.tmpDist));
@@ -156,7 +156,7 @@ gulp.task('rev', function() {
 gulp.task('build', function(done) {
   $.sequence(
     'clean',
-    ['blog', 'html', 'styles', 'scripts', 'templates', 'fonts', 'images'],
+    ['blog', 'html', 'styles', 'scripts', 'templates', 'fonts', 'other'],
     'dist',
     'rev',
     done

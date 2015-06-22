@@ -1,8 +1,7 @@
 'use strict';
 
 import './module';
-import './markdown/markdown.directive';
-import './services/posts.factory';
+import './blog/posts.factory.js';
 import './nav/nav.controller';
 import './home/home.controller';
 import './projects/projects.controller';
