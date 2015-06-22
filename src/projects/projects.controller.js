@@ -7,12 +7,12 @@
  */
 
 class Projects {
-  /* @ngInject */
-  constructor () {
+	/* @ngInject */
+	constructor() {
 
-    // var vm = this;
+		// var vm = this;
 
-  }
+	}
 }
 
 angular.module('vbudWebsite').controller('Projects', Projects);

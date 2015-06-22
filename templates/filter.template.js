@@ -7,10 +7,14 @@
  */
 
 /* @ngInject */
-function <%= cameledName %>() {
-  return function (input) {
-    return '<%= cameledName %> filter: ' + input;
-  };
+function
+<
+%= cameledName % > ()
+{
+	return function (input) {
+		return '<%= cameledName %> filter: ' + input;
+	};
 }
 
-export default <%= cameledName %>;
+export default <
+%= cameledName % >;

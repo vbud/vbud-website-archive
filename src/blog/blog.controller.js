@@ -7,16 +7,16 @@
  */
 
 class Blog {
-  /* @ngInject */
-  constructor ($state, postsService) {
-    var vm = this;
+	/* @ngInject */
+	constructor($state, postsService) {
+		var vm = this;
 
-    vm.posts = postsService.getAllPosts().then(function(posts) {
-      vm.posts = posts;
-    });
+		vm.posts = postsService.getAllPosts().then(function (posts) {
+			vm.posts = posts;
+		});
 
-    vm.$state = $state;
-  }
+		vm.$state = $state;
+	}
 }
 
 angular.module('vbudWebsite').controller('Blog', Blog);

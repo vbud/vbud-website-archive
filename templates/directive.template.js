@@ -7,19 +7,22 @@
  */
 
 /* @ngInject */
-function <%= cameledName %>() {
+function
+<
+%= cameledName % > ()
+{
 
-  function link() {
+	function link() {
 
 
+	}
 
-  }
-
-  return {
-    templateUrl: 'components/<%= name %>/<%= htmlFilename %>',
-    restrict: 'EA',
-    link: link
-  };
+	return {
+		templateUrl: 'components/<%= name %>/<%= htmlFilename %>',
+		restrict: 'EA',
+		link: link
+	};
 }
 
-export default <%= cameledName %>;
+export default <
+%= cameledName % >;

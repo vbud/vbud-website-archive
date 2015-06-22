@@ -6,13 +6,15 @@
  * @description
  */
 
-class <%= cameledName %> {
-  /* @ngInject */
-  constructor () {
+class <
+%= cameledName % > {
+		/* @ngInject */
+		constructor () {
 
-    var vm = this;
+			var vm = this;
 
-  }
-}
+		}
+	}
 
-export default <%= cameledName %>;
+export default <
+%= cameledName % >;

@@ -9,25 +9,25 @@
 /* @ngInject */
 function Nav() {
 
-  var vm = this;
+	var vm = this;
 
-  vm.links = [
-    {
-      name: 'Me',
-      route: 'home',
-      active: false
-    },
-    {
-      name: 'Projects',
-      route: 'projects',
-      active: false
-    },
-    {
-      name: 'Blog',
-      route: 'blog',
-      active: false
-    }
-  ];
+	vm.links = [
+		{
+			name: 'Me',
+			route: 'home',
+			active: false
+		},
+		{
+			name: 'Projects',
+			route: 'projects',
+			active: false
+		},
+		{
+			name: 'Blog',
+			route: 'blog',
+			active: false
+		}
+	];
 
 }
 

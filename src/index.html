@@ -1,46 +1,56 @@
 <!doctype html>
 <html ng-app="vbudWebsite">
-  <head>
-    <meta charset="utf-8">
-    <title>Valjean Clark III</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<head>
+	<meta charset="utf-8">
+	<title>Valjean Clark III</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <!-- fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+	<!-- fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700'
+		  rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono'
+		  rel='stylesheet' type='text/css'>
 
-    <!-- build:css({.tmp/serve,src}) index.css -->
-    <link rel="stylesheet" href="index.css">
-    <!-- endbuild -->
-  </head>
-  <body>
-    <ng-include src="'nav/nav.html'"></ng-include>
-    <div class="app-container" ui-view></div>
+	<!-- build:css({.tmp/serve,src}) index.css -->
+	<link rel="stylesheet" href="index.css">
+	<!-- endbuild -->
+</head>
+<body>
+<ng-include src="'nav/nav.html'"></ng-include>
+<div class="app-container" ui-view></div>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+	(function (b, o, i, l, e, r) {
+		b.GoogleAnalyticsObject = l;
+		b[l] || (b[l] =
+			function () {
+				(b[l].q = b[l].q || []).push(arguments)
+			});
+		b[l].l = +new Date;
+		e = o.createElement(i);
+		r = o.getElementsByTagName(i)[0];
+		e.src = '//www.google-analytics.com/analytics.js';
+		r.parentNode.insertBefore(e, r)
+	}(window, document, 'script', 'ga'));
+	ga('create', 'UA-XXXXX-X');
+	ga('send', 'pageview');
+</script>
 
-    <!-- build:js(src) vendor.js -->
-    <!-- bower:js -->
-    <!-- endbower -->
-    <!-- endbuild -->
+<!-- build:js(src) vendor.js -->
+<!-- bower:js -->
+<!-- endbower -->
+<!-- endbuild -->
 
-    <!-- build:js({.tmp/serve,.tmp/templates}) index.js -->
-    <script src="index.js"></script>
+<!-- build:js({.tmp/serve,.tmp/templates}) index.js -->
+<script src="index.js"></script>
 
-    <!-- inject:templates -->
-    <!-- angular templates ending in ".template.html" will be converted to js and inserted here -->
-    <!-- endinject -->
-    <!-- endbuild -->
+<!-- inject:templates -->
+<!-- angular templates ending in ".template.html" will be converted to js and inserted here -->
+<!-- endinject -->
+<!-- endbuild -->
 
-  </body>
+</body>
 </html>

@@ -1,11 +1,17 @@
 <article class="page-blog">
-  <section class="content">
-    <div ui-view></div>
-    <h1 ng-if="vm.$state.is('blog')">Posts</h1>
-    <h1 ng-class="{'more-posts': vm.$state.is('blog.post')}" ng-if="vm.$state.is('blog.post')">More posts</h1>
-    <div class="post-summary" ng-repeat="post in vm.posts | orderBy:'-date'">
-      <a ng-href="#/blog/{{post.route}}"><h2 class="post-title">{{post.title}}</h2></a>
-      <div class="post-date">{{post.date | date:'longDate'}}</p>
-    </div>
-  </section>
+	<section class="content">
+		<div ui-view></div>
+		<h1 ng-if="vm.$state.is('blog')">Posts</h1>
+
+		<h1 ng-class="{'more-posts': vm.$state.is('blog.post')}"
+			ng-if="vm.$state.is('blog.post')">More posts</h1>
+
+		<div class="post-summary"
+			 ng-repeat="post in vm.posts | orderBy:'-date'">
+			<a ng-href="#/blog/{{post.route}}"><h2 class="post-title">
+				{{post.title}}</h2></a>
+
+			<div class="post-date">{{post.date | date:'longDate'}}</p>
+			</div>
+	</section>
 </article>

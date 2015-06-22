@@ -1,33 +1,33 @@
 //===== Styles for the nav include.
 
 nav {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%);
-  background: $dark-background;
-  // background: hsla(0, 0%, 0%, 0.66);
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%);
+	background: $dark-background;
+	// background: hsla(0, 0%, 0%, 0.66);
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
 
-  li {
-    display: inline-block;
-  }
+	li {
+		display: inline-block;
+	}
 
-  a {
-    display: inline-block;
-    padding: 1rem;
-    color: #fff;
-    text-decoration: none;
+	a {
+		display: inline-block;
+		padding: 1rem;
+		color: #fff;
+		text-decoration: none;
 
-    &.active, &:hover {
-      border-bottom: 4px solid hsl(40, 100%, 50%);
-      padding-bottom: calc(1rem - 4px);
-    }
-  }
+		&.active, &:hover {
+			border-bottom: 4px solid hsl(40, 100%, 50%);
+			padding-bottom: calc(1rem - 4px);
+		}
+	}
 }
 

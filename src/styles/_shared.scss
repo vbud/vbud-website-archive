@@ -1,53 +1,54 @@
 html {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
+
 *, *:before, *:after {
-  box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  background: #fbfbfb;
+	font-family: 'Open Sans', sans-serif;
+	background: #fbfbfb;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+	margin-top: 2rem;
+	margin-bottom: 0.5rem;
+	font-weight: 600;
 }
 
 pre, code {
-  background: $dark-background;
-  font-family: 'Droid Sans Mono', monospace;
+	background: $dark-background;
+	font-family: 'Droid Sans Mono', monospace;
 }
 
 code {
-  padding: 0.125rem 0.375rem;
-  color: #fff;
+	padding: 0.125rem 0.375rem;
+	color: #fff;
 }
 
 pre {
-  padding: 1rem;
+	padding: 1rem;
 
-  // override some code block styles when they are inside pre blocks
-  code {
-    padding: 0;
-    background: none;
-  }
+	// override some code block styles when they are inside pre blocks
+	code {
+		padding: 0;
+		background: none;
+	}
 }
 
 .app-container {
-  max-width: 1024px;
-  margin: 0 auto;
+	max-width: 1024px;
+	margin: 0 auto;
 }
 
 .phototron {
-  max-width: 100%;
-  height: auto;
+	max-width: 100%;
+	height: auto;
 }
 
 .content {
-  padding: 3rem 2rem 2rem;
+	padding: 3rem 2rem 2rem;
 }
 
 

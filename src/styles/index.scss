@@ -4,10 +4,7 @@
 
 // Manually set the import paths of your dependency paths here
 
-
 // NOTE: We could do the above with wiredep, but it can be cumbersome, as it will inject all scss files in the main property of all your bower dependencies. This can cause dependencies of your dependencies to get injected, which can mess with the order of your imports and re-import things mult  iple times. Be sure to also make the required changes in gulp/styles.js and gulpfile.js in order to re-enable wiredep.
-
-
 
 //===== Application SCSS partials
 

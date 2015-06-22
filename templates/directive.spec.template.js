@@ -2,17 +2,17 @@
 
 describe('Directive: <%= cameledName %>', function () {
 
-  // load the directive's module
-  beforeEach(module('<%= appName %>'));
+	// load the directive's module
+	beforeEach(module('<%= appName %>'));
 
-  var element,
-      scope;
+	var element,
+		scope;
 
-  beforeEach(inject(function ($rootScope) {
-    scope = $rootScope.$new();
-  }));
+	beforeEach(inject(function ($rootScope) {
+		scope = $rootScope.$new();
+	}));
 
-  it('should do something', inject(function () {
+	it('should do something', inject(function () {
 
-  }));
+	}));
 });

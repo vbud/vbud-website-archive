@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 
 var $ = {
-  ghPages: require('gulp-gh-pages')
+	ghPages: require('gulp-gh-pages')
 };
 
 var config = require('./config');
@@ -13,10 +13,10 @@ var paths = config.paths;
 gulp.task('deploy', deploy);
 
 function deploy() {
-  return gulp.src(paths.dist + '/**/*')
-    .pipe($.ghPages({
-      branch: 'master'
-    }));
+	return gulp.src(paths.dist + '/**/*')
+		.pipe($.ghPages({
+			branch: 'master'
+		}));
 }
 
 module.exports = deploy;
