@@ -66,10 +66,7 @@ gulp.task('watch', ['blog', 'html', 'styles', 'scripts:watch'], function () {
 		name: 'watch: Markdown posts'
 	}, function (file) {
 		console.log(file.path);
-		blog()
-			.on('end', function () {
-				browserSync.reload();
-			});
+		gulp.start('blog:reload');
 	});
 
 	// gulp.watch(paths.src + '/**/*.html', function(event) {

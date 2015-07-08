@@ -12,6 +12,7 @@ var fs = require('fs');
 var mkdirp = require('mkdirp');
 var through = require('through2');
 var JSONStream = require('JSONStream');
+var browserSync = require('browser-sync');
 
 var config = require('./config');
 var paths = config.paths;
@@ -96,5 +97,9 @@ function compileOtherMarkdown() {
 }
 
 gulp.task('blog', ['prepare-blog-posts', 'compile-other-markdown']);
+
+gulp.task('blog:reload', ['blog'], function() {
+	browserSync.reload();
+});
 
 //module.exports = blog;
