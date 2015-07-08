@@ -155,8 +155,8 @@ gulp.task('rev', function () {
 
 gulp.task('build', function (done) {
 	$.sequence(
-		'clean',
-		['blog', 'html', 'styles', 'scripts', 'templates', 'fonts', 'other'],
+		'blog',
+		['html', 'styles', 'scripts', 'templates', 'fonts', 'other'],
 		'dist',
 		'rev',
 		done
