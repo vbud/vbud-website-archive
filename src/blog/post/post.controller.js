@@ -7,7 +7,7 @@ class Post {
 
 		postsService.getPostByRoute($stateParams.post).then(function (post) {
 			vm.post = post;
-		})
+		});
 	}
 }
 

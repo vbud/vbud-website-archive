@@ -28,7 +28,7 @@ function config($stateProvider, $urlRouterProvider) {
 			templateUrl: 'blog/post/post.html',
 			controller: 'Post',
 			controllerAs: 'vm'
-		})
+		});
 	// .state('blog/post', {
 	//   url: '/blog/:post',
 	//   templateUrl: 'pages/blog/post/post.html',
