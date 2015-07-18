@@ -10,7 +10,7 @@ var config = require('./config');
 var paths = config.paths;
 
 // Deploy dist to GitHub pages
-gulp.task('deploy', deploy);
+gulp.task('deploy', ['build'], deploy);
 
 function deploy() {
 	return gulp.src(paths.dist + '/**/*')
