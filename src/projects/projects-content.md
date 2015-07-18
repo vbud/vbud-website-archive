@@ -1,15 +1,19 @@
-# Current work
+# Portfolio
 
-I currently work at Intel. I work on internal applications and tools, so I cannot share my portfolio publicly. However, if you would like to see things I have built, please contact me and I can send you some sanitized examples.
+[Check out my portfolio](http://vbud.github.io/portfolio)!
+
+I work on internal applications and tools at Intel, so I cannot share source code or working applications, but the portfolio contains screenshots and descriptions.
+
+Also, you can [check out my resume](https://dl.dropboxusercontent.com/u/8576989/Resume%20-%20Valjean%20Clark%20III.pdf).
 
 
 # Current side projects
 
-**[starter-angular-babel][starter-angular-babel]** is my starter project for ES6, Angular-based web applications. I also use a modified version of it at work.
+[starter-angular-babel][starter-angular-babel] is my starter project for ES6, Angular-based web applications. I also use a modified version of it at work.
 
-**[This website](https://github.com/vbud/vbud.github.io)** has turned into a side project of its own. It has morphed into a static site generator using a combination of gulp and Angular. I used [starter-angular-babel][starter-angular-babel] to stub it out, then added some markdown rendering on the front-end with [marked](https://github.com/chjj/marked), then essentially added a [blog generator gulp task](https://github.com/vbud/vbud.github.io/blob/working/gulp/blog.js). The end result is that I author the whole site in markdown, and any new blog posts are picked up automatically by the build system. Epic scope creep, but worth it :). 
+[This website](https://github.com/vbud/vbud.github.io) has turned into a side project of its own. It has morphed into a static site generator using a combination of gulp and Angular. I used [starter-angular-babel][starter-angular-babel] to stub it out, then added some markdown rendering on the front-end with [marked](https://github.com/chjj/marked), then essentially added a [blog generator gulp task](https://github.com/vbud/vbud.github.io/blob/working/gulp/blog.js). The end result is that I author the whole site in markdown, and any new blog posts are picked up automatically by the build system. Epic scope creep, but worth it :). 
 
-**ewb** is a browser-based e-whiteboard that multiple people can use simultaneously. I have a not-so-polished version working but I don't have it hosted anywhere yet. You can check out the [client](https://github.com/vbud/ewb-client) and [server](https://github.com/vbud/ewb-server) code on Github.
+ewb is a browser-based e-whiteboard that multiple people can use simultaneously. I have a not-so-polished version working but I don't have it hosted anywhere yet. You can check out the [client](https://github.com/vbud/ewb-client) and [server](https://github.com/vbud/ewb-server) code on Github.
 
 
 # Things I did in school
